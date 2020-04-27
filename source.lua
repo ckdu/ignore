@@ -30,9 +30,13 @@ function changeSpeed(speed)
 		wait()
 		if v.Name == "1Cart" or v.Name == "2Cart" or v.Name == "4Cart" then
 			if v.Configuration.Speed.Value/5 < speed then
-				fireclickdetector(v.Up.Click, 0)
+				for i=0, speed - v.Configuration.Speed.Value/5 do
+					fireclickdetector(v.Up.Click, 0)
+				end
 			elseif v.Configuration.Speed.Value/5 > speed then
-				fireclickdetector(v.Down.Click, 0)
+				for i=0, v.Configuration.Speed.Value/5 - speed do
+					fireclickdetector(v.Down.Click, 0)
+				end
 			end
 		end
 	end
@@ -57,10 +61,8 @@ local Slider = Window:Slider("All Carts Speed",
 		flag = "speed"
 	},
 function()
-	while wait() do
-		if Window.flags.speedToggle then
-			pcall(changeSpeed, Window.flags.speed)
-		end
+	if Window.flags.speedToggle then
+		pcall(changeSpeed, Window.flags.speed)
 	end
 end)
 
