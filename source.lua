@@ -18,9 +18,8 @@ function keep(on)
 		if v.Name == "1Cart" or v.Name == "2Cart" or v.Name == "4Cart" then
 			if on and v.Configuration.CarOn.Value == false then
 				fireclickdetector(v.On.Click, 0)
-			else if not on and v.Configuration.CarOn.Value == true then
+			elseif not on and v.Configuration.CarOn.Value == true then
 				fireclickdetector(v.On.Click, 0)
-			end
 			end
 		end
 	end
