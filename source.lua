@@ -58,6 +58,11 @@ local Slider = Window:Slider("All Carts Speed",
 		flag = "speed"
 	},
 function()
+	while wait() do
+		if Window.flags.speedToggle then
+			pcall(changeSpeed, Window.flags.speed)
+		end
+	end
 end)
 
 Window:Section('Made by Aim @V3rmillion')
@@ -103,15 +108,6 @@ spawn(
 		while wait() do
 			if Window.flags.alloff then
 				keep(false)
-			end
-		end
-	end
-)
-spawn(
-	function()
-		while wait() do
-			if Window.flags.speedToggle then
-				pcall(changeSpeed, Window.flags.speed)
 			end
 		end
 	end
