@@ -30,13 +30,9 @@ function changeSpeed(speed)
 		wait()
 		if v.Name == "1Cart" or v.Name == "2Cart" or v.Name == "4Cart" then
 			if v.Configuration.Speed.Value/5 < speed then
-				for i=0, speed - v.Configuration.Speed.Value/5 do
-					fireclickdetector(v.Up.Click, 0)
-				end
+				fireclickdetector(v.Up.Click, 0)
 			elseif v.Configuration.Speed.Value/5 > speed then
-				for i=0, v.Configuration.Speed.Value/5 - speed do
-					fireclickdetector(v.Down.Click, 0)
-				end
+				fireclickdetector(v.Down.Click, 0)
 			end
 		end
 	end
