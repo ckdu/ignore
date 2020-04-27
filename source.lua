@@ -30,9 +30,13 @@ function changeSpeed(speed)
 		wait()
 		if v.Name == "1Cart" or v.Name == "2Cart" or v.Name == "4Cart" then
 			if v.Configuration.Speed.Value/5 < speed then
-				fireclickdetector(v.Up.Click, 0)
+				for i=0, speed - v.Configuration.Speed.Value/5 do
+					fireclickdetector(v.Up.Click, 0)
+				end
 			elseif v.Configuration.Speed.Value/5 > speed then
-				fireclickdetector(v.Down.Click, 0)
+				for i=0, v.Configuration.Speed.Value/5 - speed do
+					fireclickdetector(v.Down.Click, 0)
+				end
 			end
 		end
 	end
@@ -47,14 +51,13 @@ local Toggle3 = Window:Toggle("On/Off Button Spam", {flag = "on"})
 local Toggle4 = Window:Toggle("Keep carts On", {flag = "allon"})
 local Toggle5 = Window:Toggle("Keep carts Off", {flag = "alloff"})
 Window:Section('Speed Control')
-local Toggle = Window:Toggle("Enable Speed Slider", {flag = "speedToggle"})
-local Slider = Window:Slider("All Carts Speed",
+local Toggle = Window:Toggle("Enable Speed Control", {flag = "speedToggle"})
+local Box = Window:Box("All Carts Speed",
 	{
-		precise = false,
-		default = 8,
-		min = -50,
-		max = 50,
-		flag = "speed"
+		flag = "speed";
+		type = "number";
+		max = 50;
+		min = -50;
 	},
 function()
 	if Window.flags.speedToggle then
