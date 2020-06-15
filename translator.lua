@@ -1,6 +1,6 @@
 --[[
-	Message Translator
-	Made by Aim#3750
+    Message Translator
+    Made by Aim#3750
 --]]
 
 local YourLang = "en" -- Language code that the messages are going to be translated to
@@ -11,9 +11,9 @@ local LocalPlayer = Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 local HttpService = game:GetService("HttpService")
 local properties = {
-	Color = Color3.new(1,1,0);
-	Font = Enum.Font.SourceSansItalic;
-	TextSize = 16;
+    Color = Color3.new(1,1,0);
+    Font = Enum.Font.SourceSansItalic;
+    TextSize = 16;
 }
 
 function unescape(str) -- Not mine
@@ -121,32 +121,32 @@ function unescape(str) -- Not mine
 end
 
 function translate(message)
-	local URL = "https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text="..message
+    local URL = "https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text="..HttpService:UrlEncode(message)
     local lang = HttpService:JSONDecode(game:HttpGet(URL)).lang
     local translation
     if lang and lang ~= YourLang then
-        local URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key="..key.."&text="..message.."&lang="..lang.."-"..YourLang
+        local URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key="..key.."&text="..HttpService:UrlEncode(message).."&lang="..lang.."-"..YourLang
         translation = HttpService:JSONDecode(game:HttpGet(URL)).text[1]
     end
-	return translation
+    return translation
 end
 
 function get(plr, msg)
-	local translation = translate(msg)
-	if translation then
-	    print(translation)
-		properties.Text = "[".. plr.Name .."]: "..translation
-		StarterGui:SetCore("ChatMakeSystemMessage", properties)
-	end
+    local translation = translate(msg)
+    if translation then
+        print(translation)
+        properties.Text = "[".. plr.Name .."]: "..translation
+        StarterGui:SetCore("ChatMakeSystemMessage", properties)
+    end
 end
 
 for i, plr in ipairs(Players:GetPlayers()) do
-	plr.Chatted:Connect(function(msg)
-		get(plr, msg)
-	end)
+    plr.Chatted:Connect(function(msg)
+        get(plr, msg)
+    end)
 end
 Players.PlayerAdded:Connect(function(plr)
-	plr.Chatted:Connect(function(msg)
-		get(plr, msg)
-	end)
+    plr.Chatted:Connect(function(msg)
+        get(plr, msg)
+    end)
 end)
