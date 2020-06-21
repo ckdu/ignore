@@ -27,7 +27,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",
     }
 )
                   
-properties.Text = "[TR] To send messages in a language, say > followed by the target language/language code, e.g.: >ru or >russian. To disable, >d."
+properties.Text = "[TR] To send messages in a language, say > followed by the target language/language code, e.g.: >ru or >russian. To disable (go back to original language), say >d."
 StarterGui:SetCore("ChatMakeSystemMessage", properties)
 
 -- See if selected API key is working, and if not, get a new one.
