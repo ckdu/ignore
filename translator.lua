@@ -22,8 +22,8 @@ local properties = {
 game:GetService("StarterGui"):SetCore("SendNotification",
     {
         Title = "Chat Translator",
-        Text = "Added Message Sender! Look at the chat for more info.",
-        Duration = 5
+        Text = "Fixed lag.",
+        Duration = 3
     }
 )
                   
@@ -32,7 +32,7 @@ StarterGui:SetCore("ChatMakeSystemMessage", properties)
 
 -- See if selected API key is working, and if not, get a new one.
 function test()
-    game:HttpGet("https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text=h")
+    game:HttpGetAsync("https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text=h")
 end
 local s, e = pcall(test)
 while not s do
@@ -44,11 +44,11 @@ end
 
 function translateFrom(message)
     local URL = "https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text="..HttpService:UrlEncode(message)
-    local lang = HttpService:JSONDecode(game:HttpGet(URL)).lang
+    local lang = HttpService:JSONDecode(game:HttpGetAsync(URL)).lang
     local translation
     if lang and lang ~= YourLang then
         local URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key="..key.."&text="..HttpService:UrlEncode(message).."&lang="..lang.."-"..YourLang
-        translation = HttpService:JSONDecode(game:HttpGet(URL)).text[1]
+        translation = HttpService:JSONDecode(game:HttpGetAsync(URL)).text[1]
     end
     return {translation, lang}
 end
@@ -83,11 +83,11 @@ function translateTo(message, target)
     target = target:lower()
     if l[target] then target = l[target] end
     local URL = "https://translate.yandex.net/api/v1.5/tr.json/detect?key="..key.."&text="..HttpService:UrlEncode(message)
-    local lang = HttpService:JSONDecode(game:HttpGet(URL)).lang
+    local lang = HttpService:JSONDecode(game:HttpGetAsync(URL)).lang
     local translation
     if lang and lang ~= target then
         local URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key="..key.."&text="..HttpService:UrlEncode(message).."&lang="..lang.."-"..target
-        translation = HttpService:JSONDecode(game:HttpGet(URL)).text[1]
+        translation = HttpService:JSONDecode(game:HttpGetAsync(URL)).text[1]
     end
     return translation
 end
