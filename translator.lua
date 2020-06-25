@@ -18,6 +18,7 @@ for i=1, 15 do
     if r then break end
     game:GetService('RunService').RenderStepped:wait()
 end
+wait()
 
 local HttpService = game:GetService("HttpService")
 local properties = {
@@ -29,7 +30,7 @@ local properties = {
 game:GetService("StarterGui"):SetCore("SendNotification",
     {
         Title = "Chat Translator",
-        Text = "Fixed lag & autoexecute.",
+        Text = "Bug Fix",
         Duration = 3
     }
 )
