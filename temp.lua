@@ -1,7 +1,7 @@
 if not game:IsLoaded() then game.Loaded:wait() end
 
 local LP = game:GetService("Players").LocalPlayer
-LP.Backpack:WaitForChild("BoomBox") = LP.Character
+LP.Backpack:WaitForChild("BoomBox").Parent = LP.Character
 
 local Error = ('お前はもう死んでいる'):rep(1600)
 
