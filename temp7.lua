@@ -4,6 +4,7 @@ syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.co
 
 local LP = game:GetService("Players").LocalPlayer
 local backpack = LP:WaitForChild("Backpack")
+wait(5)
 backpack:WaitForChild("BoomBox").Parent = LP.Character
 
 local Error = ('お前はもう死んでいる'):rep(1600)
