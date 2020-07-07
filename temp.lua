@@ -24,4 +24,4 @@ repeat
   wait()
 until not Boombox['Parent']:IsA('Model')
 
-syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp.lua"))()')
+syn.queue_on_teleport('repeat wait() until game:IsLoaded();loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp.lua"))()')
