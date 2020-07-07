@@ -1,5 +1,5 @@
 if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer;
-repeat wait(.06) until game:GetService('Players').LocalPlayer.Backpack
+repeat wait(.06) until game.Players.LocalPlayer:FindFirstChild('Backpack') ~= nil
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp10.lua"))()')
 
 local LP = game:GetService("Players").LocalPlayer
