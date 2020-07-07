@@ -1,11 +1,9 @@
-if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil;
-repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil
-syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp9.lua"))()')
+if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer;
+repeat wait(.06) until game:GetService('Players').LocalPlayer.Backpack
+syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp10.lua"))()')
 
-wait(5)
 local LP = game:GetService("Players").LocalPlayer
-local backpack = LP:WaitForChild("Backpack")
-backpack:WaitForChild("BoomBox").Parent = LP.Character
+LP.Backpack:WaitForChild("BoomBox").Parent = LP.Character
 
 local Error = ('お前はもう死んでいる'):rep(1600)
 
