@@ -1,6 +1,6 @@
 if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil;
 repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil
-syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp6.lua"))()')
+syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp8.lua"))()')
 
 local LP = game:GetService("Players").LocalPlayer
 local backpack = LP:WaitForChild("Backpack")
