@@ -1,3 +1,5 @@
+if not game:IsLoaded() then game.Loaded:wait() end
+
 local LP = game:GetService("Players").LocalPlayer
 LP.Backpack:WaitForChild("BoomBox") = LP.Character
 
