@@ -1,6 +1,9 @@
+local LP = game:GetService("Players").LocalPlayer
+LP.Backpack:WaitForChild("BoomBox") = LP.Character
+
 local Error = ('お前はもう死んでいる'):rep(1600)
 
-local Boombox = game:GetService('Players')['LocalPlayer'].Character:FindFirstChildOfClass('Tool')
+local Boombox = LP.Character:FindFirstChildOfClass('Tool')
 local Remote = Boombox:FindFirstChildOfClass('RemoteEvent')
 
 settings():GetService("LuaSettings").DefaultWaitTime = math.huge
@@ -11,7 +14,7 @@ settings():GetService("LuaSettings").DefaultWaitTime = -math.huge
 
 spawn(function()
     wait(10)
-    game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+    game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, LP)
 end)
 
 repeat
