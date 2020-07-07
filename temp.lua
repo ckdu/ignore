@@ -1,4 +1,4 @@
-if not game:IsLoaded() then game.Loaded:wait() end
+if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil
 
 local LP = game:GetService("Players").LocalPlayer
 LP.Backpack:WaitForChild("BoomBox").Parent = LP.Character
